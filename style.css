@@ -18,7 +18,3 @@ body {
     display: grid;
     grid-template-columns: auto auto;
 }
-
-.button-container {
-    padding: 16px;
-}
