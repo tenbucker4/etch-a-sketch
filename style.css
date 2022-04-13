@@ -18,3 +18,10 @@ body {
     display: grid;
     grid-template-columns: auto auto;
 }
+
+.grid-size-container {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    gap: 16px;
+}
