@@ -1,3 +1,4 @@
+// Variables
 const DEFAULT_SIZE = 16;
 const DEFAULT_COLOR = "black";
 const DEFAULT_MODE = "colorMode"
@@ -15,6 +16,7 @@ const rainbowBtn = document.getElementById("rainbowBtn");
 const eraserBtn = document.getElementById("eraserBtn");
 const colorPicker = document.getElementById("colorPicker");
 
+// Button functionality
 clearBtn.onclick = () => resetGrid();
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
@@ -23,6 +25,8 @@ colorBtn.onclick = () => changeMode("colorMode");
 eraserBtn.onclick = () => changeMode("eraserMode");
 colorPicker.onchange = (e) => changeColor(e.target.value);
 
+
+// Functions
 function changeSize(value) {
     setSize(value);
     updateSizeValue(value);
