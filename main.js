@@ -15,6 +15,7 @@ const colorBtn = document.getElementById("colorBtn");
 const rainbowBtn = document.getElementById("rainbowBtn");
 const eraserBtn = document.getElementById("eraserBtn");
 const colorPicker = document.getElementById("colorPicker");
+const allBtns = document.querySelectorAll("button");
 
 // Button functionality
 clearBtn.onclick = () => resetGrid();
@@ -27,6 +28,23 @@ colorPicker.onchange = (e) => changeColor(e.target.value);
 
 
 // Functions
+function highlightButton(newMode) {
+    if (newMode === "rainbowMode") {
+        rainbowBtn.classList.add("active");
+        colorBtn.classList.remove("active");
+        eraserBtn.classList.remove("active");
+    } else if (newMode === "colorMode") {
+        colorBtn.classList.add("active");
+        rainbowBtn.classList.remove("active");
+        eraserBtn.classList.remove("active");
+    } else if (newMode === "eraserMode") {
+        eraserBtn.classList.add("active");
+        rainbowBtn.classList.remove("active");
+        colorBtn.classList.remove("active");
+    }
+}
+
+
 function changeSize(value) {
     setSize(value);
     updateSizeValue(value);
@@ -42,6 +60,7 @@ function setSize(newSize) {
 }
 
 function changeMode(newMode) {
+    highlightButton(newMode)
     currentMode = newMode;
 }
 
@@ -85,4 +104,5 @@ function clearGrid() {
 
 window.onload = () => {
     populateGrid(DEFAULT_SIZE);
+    highlightButton(DEFAULT_MODE);
 }
