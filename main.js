@@ -19,6 +19,7 @@ sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 rainbowBtn.onclick = () => changeMode("rainbowMode");
 colorBtn.onclick = () => changeMode("colorMode");
+eraserBtn.onclick = () => changeMode("eraserMode");
 
 function changeSize(value) {
     setSize(value);
@@ -58,6 +59,8 @@ function draw(e) {
         const randomG = Math.floor(Math.random() * 256);
         const randomB = Math.floor(Math.random() * 256);
         e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    } else if (currentMode === "eraserMode") {
+        e.target.style.backgroundColor = "#fefefe";
     }
 }
 
