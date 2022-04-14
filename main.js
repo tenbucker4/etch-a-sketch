@@ -13,6 +13,7 @@ const sizeValue = document.getElementById("sizeValue");
 const colorBtn = document.getElementById("colorBtn");
 const rainbowBtn = document.getElementById("rainbowBtn");
 const eraserBtn = document.getElementById("eraserBtn");
+const colorPicker = document.getElementById("colorPicker");
 
 clearBtn.onclick = () => resetGrid();
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
@@ -20,6 +21,7 @@ sizeSlider.onchange = (e) => changeSize(e.target.value);
 rainbowBtn.onclick = () => changeMode("rainbowMode");
 colorBtn.onclick = () => changeMode("colorMode");
 eraserBtn.onclick = () => changeMode("eraserMode");
+colorPicker.onchange = (e) => changeColor(e.target.value);
 
 function changeSize(value) {
     setSize(value);
@@ -39,6 +41,10 @@ function changeMode(newMode) {
     currentMode = newMode;
 }
 
+function changeColor(newColor) {
+    currentColor = newColor;
+}
+
 function populateGrid(size) {
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -53,7 +59,7 @@ function populateGrid(size) {
 
 function draw(e) {
     if (currentMode === "colorMode") {
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = currentColor;
     } else if (currentMode === "rainbowMode") {
         const randomR = Math.floor(Math.random() * 256);
         const randomG = Math.floor(Math.random() * 256);
