@@ -19,9 +19,13 @@ body {
     grid-template-columns: auto auto;
 }
 
-.grid-size-container {
+.settings-container {
     display: flex;
     padding: 16px;
     justify-content: center;
     gap: 16px;
 }
+
+.grid-element {
+    user-select: none;
+  }
